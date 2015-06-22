@@ -1,0 +1,48 @@
+<div class="head">
+  <div class="navigation" style="height:0px;">
+  <div class="inside" style="height:10px;">
+  
+<!--导航分类代码 -->
+<!--${
+$categorys = get_categorys();
+}--> 
+   <div class="product-type-list ptl">
+    <div class="type-list tl">
+     <ul>
+     
+     
+     
+     
+     <!--{loop $categorys $index $cat}-->
+            <li class="tl${$index + 1}">
+       <div class="gt"></div>       <div class="panel">
+        <div class="ntype"><a href="/category.php?gid={$cat['id']}" class="n">{$cat['name']}</a></div>
+     
+        
+         </div>
+       <div class="showmenu" style="display: none;">
+        <div class="this-type-all tta">
+         <p class="t">{$cat['name']}</p>
+         <p class="ty">
+         <!--{loop $cat['fcat'] $findex $fcat}-->
+        <a href="/category.php?gid={$cat['id']}&sid={$fcat['id']}">{$fcat['name']}</a>
+         
+          <!--{/loop}-->
+         
+         </p>
+         <p class="hr"></p>                
+          </div>
+       </div>      </li>
+       <!--{/loop}-->   
+           </ul>
+   
+    </div>
+   </div>
+<!--导航分类代码 -->
+  </div>
+ </div>
+ </div>
+
+
+ 
+ 

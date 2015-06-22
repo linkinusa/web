@@ -1,0 +1,52 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html lang="ZH-CN" dir="ltr" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link href="/static/0750/css/linkinusaindex.css" rel="stylesheet" type="text/css">
+
+<script type="text/javascript">var WEB_ROOT = '${WEB_ROOT}';</script>
+<script type="text/javascript">var LOGINUID= ${abs(intval($login_user_id))};</script>
+<script src="/static/js/index.js" type="text/javascript"></script>
+
+
+${Session::Get('script',true);}
+<!--{include meta_and_title}-->
+
+</head>
+<!--{include head_ctn}-->
+<div class="content">
+		<div class="logintitle"><h1>注册</h1></div>
+		<div class="sharelogin">
+			<p>您可以使用以下账号直接登陆邻客美国，无需注册</p>
+			<ul>
+				<li><a href=""><img src="/static/0750/images/wxico.png"/></a><br/><span><a href="">微信登陆</a></span></li>
+				<li><a href=""><img src="/static/0750/images/wbico.png"/></a><br/><span><a href="/thirdpart/sina/login.php" target="_blank">微博登陆</a></span></li>
+				<li><a href=""><img src="/static/0750/images/qqico.png"/></a><br/><span><a href="/thirdpart/qzone/index.php" target="_blank">QQ登陆</a></span></li>
+				<li><a href=""><img src="/static/0750/images/fbico.png"/></a><br/><span><a href="">Facebook登陆</a></span></li>
+				<li><a href=""><img src="/static/0750/images/rrico.png"/></a><br/><span><a href="">人人网登陆</a></span></li>
+			</ul></div>
+		<div class="registinfo">
+		   
+			 <?php if($session_notice=Session::Get('error',true)){?>
+				  <li id="" class="noStyle"><div class="area error"><?php echo $session_notice; ?></div></li>
+			 <?php }?>
+			 
+			 
+			 <li style="display:none;" id="login_error" class="noStyle"><div class="area error"></div></li>
+			 <li style="display:none;" id="login_success" class="noStyle"><div class="area success"></div></li>
+			<form name="reg_form" action="/account/login.php" method="post">
+				<h1>账号登录</h1><br/><br/><br/><br/>
+				<input type="text" class="logininput" name="email" id="login-email-address" value="" placeholder="可使用 用户账号/邮箱 登录"/><img src="/static/0750/images/loginnamebg.png" class="logininputimg"/><br/><br/><br/><br/>
+				<input type="password" class="logininput" name="password" id="login-password" placeholder="账户密码" /><img src="/static/0750/images/loginpwdbg.png" class="logininputimg"/>
+				<br/>
+				<p class="extralogininfo">
+				<input id="autologin" class="f-check" type="checkbox" checked="" name="auto_login" value="1">&nbsp;<span>自动登录</span> <a href="/account/repass.php">忘记密码？</a><br/>
+				<input type="submit" value="" class="loginbtn" class="loginbtn"/>
+				</p>
+				<p class="extralogininfop">还没有账号？&nbsp;&nbsp;<a href="/account/signup.php">免费注册</a></p>
+				
+			</form>
+		</div>
+	</div>
+	
+<!--{include foot_ctn}-->

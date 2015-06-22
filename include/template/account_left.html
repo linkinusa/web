@@ -1,0 +1,74 @@
+	<div class="usercenterinfo">
+				<img src="/static/0750/images/usercenterico.png" class="usercenterico"/>
+					<ul>
+                    <li><a href="/account/settings.php"><img src="/static/0750/images/setico.png"/></a></li>
+                    <li><a href="/credit/mydate.php"><img src="/static/0750/images/mobieico.png"/></a></li>
+                    <li><a href="/order/index.php?s=index&ocur=1"><img src="/static/0750/images/txtico.png"/></a></li>
+                    </ul>
+			</div>
+              <div class="mylink">
+              <h1 class="usercenternav" style="text-align:center; font-size:16px;">积分 ${moneyit($login_user['score'])}</h1>
+              </div>
+	           <div class="mylink">
+				<h1  onmouseover="document.getElementById('scur').src='/static/0750/images/bodyico-1.png'"  <!--{if $_GET['scur']!= 1}-->onmouseout="document.getElementById('scur').src='/static/0750/images/bodyico.png'"<!--{/if}-->   class="usercenternav <!--{if $_GET['scur']== 1}-->curh1<!--{/if}-->">
+                <a href="/account/settings.php?scur=1">
+                       <!--{if $_GET['scur']== 1}--><img id="scur" src="/static/0750/images/bodyico-1.png"/><!--{else}--><img id="scur"  src="/static/0750/images/bodyico.png"/><!--{/if}-->
+               我的邻客</a>
+                
+                </h1>
+				<ul class="usercenterslideul">
+					<li><a class="<!--{if $pagetitle == '账户设置' && $_GET['scur'] != 1}-->leftcur<!--{/if}-->" href="/account/settings.php">我的资料</a></li>
+					<li><a class="<!--{if $pagetitle == '我的积分'}-->leftcur<!--{/if}-->" href="/credit/score.php">我的积分</a></li>
+					<li><a class="<!--{if $pagetitle == '我的日历'}-->leftcur<!--{/if}-->" href="/credit/mydate.php">我的日历</a></li>
+					<li><a class="<!--{if $_GET['s']== 'askrefund'}-->leftcur<!--{/if}-->"  href="/order/index.php?s=askrefund">我的退款</a></li>
+				</ul>
+			</div>
+			<div class="myorder">
+				<h1  onmouseover="document.getElementById('ocur').src='/static/0750/images/orderico-1.png'"  <!--{if $_GET['ocur']!= 1}-->onmouseout="document.getElementById('ocur').src='/static/0750/images/orderico.png'" <!--{/if}-->    class="usercenternav <!--{if $_GET['ocur']== 1}-->curh1<!--{/if}-->">
+                
+                <a href="/order/index.php?s=index&ocur=1">
+                   <!--{if $_GET['ocur']== 1}--><img id="ocur" src="/static/0750/images/orderico-1.png"/><!--{else}--><img id="ocur" src="/static/0750/images/orderico.png"/><!--{/if}-->    
+
+                
+                我的订单</a></h1>
+                
+                
+                
+				<ul class="usercenterslideul">
+				<li><a  class="<!--{if $_GET['s']== 'unpay'}-->leftcur<!--{/if}-->"  href="/order/index.php?s=unpay">未付款</a></li>
+				<li><a  class="<!--{if $_GET['s']== 'pay'}-->leftcur<!--{/if}-->"  href="/order/index.php?s=pay">已付款</a></li>
+				</ul>
+			</div>
+			<div class="myappraise">
+				<h1 onmouseover="document.getElementById('mcur').src='/static/0750/images/msgico-1.png'" <!--{if $_GET['mcur']!= 1}--> onmouseout="document.getElementById('mcur').src='/static/0750/images/msgico.png'"<!--{/if}-->  class="usercenternav <!--{if $_GET['mcur']== 1}-->curh1<!--{/if}-->">
+                <a href="/account/comment.php?mcur=1" >
+                  <!--{if $_GET['mcur']== 1}--><img width="15" height="15" id="mcur" src="/static/0750/images/msgico-1.png"/><!--{else}-->
+                  <img id="mcur" src="/static/0750/images/msgico.png"/><!--{/if}-->
+      
+                
+                
+                我的评价</a>
+                </h1>
+                <ul class="usercenterslideul">
+                 	    <li><a class="<!--{if $_GET['os']== 'yes'}-->leftcur<!--{/if}-->"  href="/account/comment.php?os=yes">已评价</a></li>
+			        	<li><a class="<!--{if $_GET['os']== 'no'}-->leftcur<!--{/if}-->"  href="/order/comment_index.php?os=no">未评价</a></li>
+                        </ul>
+			</div>
+			<div class="mycollect">
+				<h1  onmouseover="document.getElementById('ccur').src='/static/0750/images/collectico-1.png'"  <!--{if $_GET['ccur']!= 1}--> onmouseout="document.getElementById('ccur').src='/static/0750/images/collectico.png'" <!--{/if}-->  class="usercenternav <!--{if $_GET['ccur']== 1}-->curh1<!--{/if}-->">
+                
+                <a href="/account/collect.php?ccur=1">
+                <!--{if $_GET['ccur']== 1}--><img id="ccur" src="/static/0750/images/collectico-1.png"/><!--{else}--><img id="ccur" src="/static/0750/images/collectico.png"/><!--{/if}-->
+                
+                
+                我的收藏
+                
+                </a>
+                
+                </h1>
+				 <ul class="usercenterslideul">
+                     <!--{loop $categorys $index $cat}-->
+                       <li><a class="<!--{if $_GET['gid']== $cat['id']}-->leftcur<!--{/if}-->"  href="/account/collect.php?gid={$cat['id']}">{$cat['name']}</a></li>
+                     <!--{/loop}-->
+                 </ul>
+			</div>

@@ -1,0 +1,69 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Strict//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta name="robots" content="noindex, nofollow">
+</head>
+<body bgcolor="#ffffff" style='padding:10px; width:720px; margin:auto;'>
+<style type='text/css'>
+body {font-family:Helvetica, Arial, sans-serif; color:#6C6C6C;}
+a { color: #000; text-decoration:none;}
+a:hover { color: #EA0886; text-decoration:none; }
+p { line-height: 1.5em; }
+</style>
+
+<table cellpadding='0' cellspacing='0' width='720px'>
+    <tr>
+        <td>
+            <p style='margin:0; padding:0; font-size:14px; color:#000; font-family: Helvetica, Arial, sans-serif;text-align:center;font-size:12px; color:#929292; '>请把 <a href="mailto:{$notice_email}" style="" title="">{$notice_email}</a> 加到您的邮箱联系人中，以确保能正确接收此邮件。</p>
+        </td>
+    </tr>
+</table>
+
+<!-- content -->
+<div style='width:670px; margin:5px 0; padding: 20px 20px 20px 20px; background-color:#fff; border-width:5px; border-style: solid; border-color:#deedcc;-moz-border-radius:10px;-webkit-border-radius:10px;font-size:14px;'>
+
+<table>
+<tr>
+    <th width="200">订单编号：{$order['id']}</th><th width="200">支付单号：{$order['pay_id']}</th><th width="200">订单选项：{$order['condbuy']}</th>
+</tr>
+<tr style="margin-top:20px;">
+    <th width="200" >下单时间：${date('Y-m-d H:i',$order['create_time'])}</th><th width="200">付款时间：${date('Y-m-d H:i',$order['pay_time'])}</th><th width="200">幸运号码：{$order['luky_id']}</th>
+</tr>
+</table>
+<table style="margin-top:20px;margin-bottom:20px;">
+<tr>
+    <th width="200">项目名称</th><th>单价</th><th>数量</th><th>总价</th><th>状态</th>
+</tr>
+<tr>
+    <th><a href="/team.php?id={$team['id']}" target="_blank">{$team['title']}</a></th><th>{$team['team_price']}</th><th>{$order['quantity']}</th><th>{$team['team_price']*$order['quantity']}</th><th><!--{if $order['state']=='pay'}-->成功<!--{else}-->失败<!--{/if}--></th>
+</tr>
+</table>
+<!--{if $team['delivery']=='express'}-->
+<table>
+  <tr>
+    <th>收货地址：{$order['address']}</th>
+  </tr>
+   <tr>
+    <th>卖家留言：{$order['remark']}</th>
+  </tr>
+</table>
+<!--{elseif $team['delivery']=='coupon'}-->
+<table>
+<!--{loop $coupons $index $one}-->
+  <tr>
+    <th>优惠券编码：{$one['id']}</th><th>密码：{$one['secret']}</th>
+  </tr>
+<!--{/loop}-->
+
+</table>
+<!--{/if}-->
+<table style='background-color:#deedcc; margin-top:2px; -moz-border-radius-bottomleft:8px; -moz-border-radius-bottomright:8px; -webkit-border-bottom-left-radius:8px; -webkit-border-bottom-right-radius:8px;' width='100%'>
+    <tr>
+        <td style='font-family: Helvetica, Arial, sans-serif; color:#545454; font-size:12px; text-align:center; line-height:16px; padding:10px;'>电子邮箱:<a href="mailto:{$help_email}" style="" title="">{$help_email}</a>&nbsp;&nbsp;&nbsp; 客服电话:123456&nbsp;&nbsp;<span style='font-weight:normal; font-size:12px;'>星期一至星期五 9:30-18:00</span></td>
+    </tr>
+</table>
+
+</div>
+</body>
+</html>

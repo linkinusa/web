@@ -1,0 +1,146 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html lang="ZH-CN" dir="ltr" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link href="/static/0750/css/linkinusaindex.css" rel="stylesheet" type="text/css">
+<script src="/static/0750/js/j.js" type="text/javascript"></script>
+<script src="/static/0750/js/jquery.jcookie.min.js" type="text/javascript"></script>
+<script src="/static/0750/js/js_lang.js" type="text/javascript"></script>
+<script type="text/javascript">var WEB_ROOT = '${WEB_ROOT}';</script>
+<script type="text/javascript">var LOGINUID= ${abs(intval($login_user_id))};</script>
+<script src="/static/js/index.js" type="text/javascript"></script>
+<script src="/static/0750/js/slide.js" type="text/javascript"></script>
+
+${Session::Get('script',true);}
+<!--{include meta_and_title}-->
+
+</head>
+<!--{include head_biz_ctn}-->
+<div class="content">
+		<div class="logintitle"><h1>商家登陆</h1></div>
+	
+		<div class="registinfo" style="float:left">
+			 
+			 <li style="display:none;" id="login_error" class="noStyle"><div class="area error"></div></li>
+			 <li style="display:none;" id="login_success" class="noStyle"><div class="area success"></div></li>
+			<form id="biz-user-form" method="post" action="/biz/login.php" class="validator">
+				<h1>账号登录</h1><br/><br/><br/><br/>
+				<input type="text" class="logininput" name="username" id="biz-username" value="" placeholder="用户名"/><img src="/static/0750/images/loginnamebg.png" class="logininputimg"/><br/><br/><br/><br/>
+				<input type="password" class="logininput" name="password" id="biz-password" placeholder="密码" /><img src="/static/0750/images/loginpwdbg.png" class="logininputimg"/>
+				<br/>
+				<p class="extralogininfo">
+				<input type="checkbox" class="logincheckbox" />&nbsp;<span>自动登录</span> <a href="">忘记密码？</a><br/>
+				<input type="submit" value="" class="loginbtn" id="login-submit" name="commit"/>
+				</p>
+				
+				
+			</form>
+		</div>
+	</div>
+<!--{include foot_ctn}-->
+<script type="text/javascript">
+jQuery(function($){
+	$("#login-submit").click(function(){
+		
+		if($.trim($("#login-email-address").val()).length == 0)
+		{
+			$.showErr("请输入您的 Email/用户账号");
+			$("#login-email-address").focus();
+			return false;
+		}
+		
+		/*del by chenfq 2010-06-26 可以支持用户名登录
+		if(!$.checkEmail($("#login-email-address").val()))
+		{
+			$.showErr("您输入了错误的 Email 地址");
+			$("#login-email-address").focus();
+			return false;
+		}
+		*/
+		if(!$.minLength($("#login-password").val(),4,false))
+		{
+			$.showErr("请输入正确的密码");
+			$("#login-password").focus();
+			return false;
+		}
+	});
+});
+    
+        var weixin_login_to = null;
+    show_weinxin_qrcode();
+    function show_weinxin_qrcode(){
+        $.ajax({
+            url : ROOT_PATH + "/index.php?m=Ajax&a=weixin_qrcode",
+            cache : false,
+            type : 'POST',
+            dataType : 'json',
+            success : function(data)
+            {
+                if(data.type == 1)
+                {
+                    if(data.data.img_url)
+                    {
+                        $("#weixin_qrcode").show().attr("src", data.data.img_url);
+                        s_check_weixin_login();
+                    }
+                }
+                else
+                    alert(data.msg);
+            }
+        });
+        return false;
+    }
+    
+    
+    function s_check_weixin_login()
+    {
+        clearTimeout(weixin_login_to);
+        weixin_login_to = setTimeout(function(){check_weixin_login();},5000);
+    }
+    
+    function check_weixin_login()
+    {
+        $.ajax({
+            url : ROOT_PATH + "/index.php?m=Ajax&a=weixin_check_login",
+            cache : false,
+            type : 'POST',
+            dataType : 'json',
+            success : function(data){
+                if(data.type == 1) // 已登录
+                {
+                    window.location.href = ROOT_PATH+"/index.php?m=User&a=login_weixin&redirect="+encodeURIComponent("")+"&goods_id=0";
+                }
+                else if(data.type == 0)// 未登录
+                {
+                    s_check_weixin_login();
+                }
+                else if(data.type == -1)// 二维码失效
+                {
+                    show_weinxin_qrcode();
+                }
+            }
+        });
+    }
+    </script>
+<script type="text/javascript" src="/static/0750/js/common.js"></script>
+<script type="text/javascript">
+(function($){
+    var err_time = null;
+    $.showErr = function(val){
+        clearTimeout(err_time);
+        var login_error = $("#login_error");
+        var login_success = $("#login_success");
+        login_error.show().find(".area").html(val);
+        login_success.hide();
+        err_time = setTimeout(function(){login_error.hide();},5000);
+    }
+    $.showSuccess = function(val){
+        clearTimeout(err_time);
+        var login_error = $("#login_error");
+        var login_success = $("#login_success");
+        login_success.show().find(".area").html(val);
+        login_error.hide();
+        err_time = setTimeout(function(){login_error.hide();},5000);
+    }
+})(jQuery);
+</script>

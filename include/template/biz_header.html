@@ -1,0 +1,54 @@
+<div class="bizuser">
+<div class="usercenterinfo" style="height:50px; line-height:60px; text-indent:7em;">
+        <h1 style="font-size:22px;"> My Account</h1>
+    </div>
+    <div class="mylink <!--{if $pagetitle == 'settings'}-->bizcur<!--{/if}-->">
+        <h1  onmouseover="document.getElementById('scur').src='/static/0750/images/biz_bodyico-1.png'"  <!--{if $pagetitle != 'settings'}-->   onmouseout="document.getElementById('scur').src='/static/0750/images/biz_bodyico.png'" <!--{/if}-->  class="usercenternav"><a href="/biz/settings.php?scur=1">
+       
+         <!--{if $pagetitle == 'settings'}-->  <img id="scur" src="/static/0750/images/biz_bodyico-1.png"/><!--{else}-->  <img id="scur"  src="/static/0750/images/biz_bodyico.png"/><!--{/if}-->
+        
+        Personal Information</a></h1>
+    </div>
+    
+    <div class="myappraise <!--{if $pagetitle == 'index'}-->bizcur<!--{/if}-->">
+        <h1   onmouseover="document.getElementById('tcur').src='/static/0750/images/biz_xmxx-1.png'"  <!--{if $pagetitle != 'index'}-->onmouseout="document.getElementById('tcur').src='/static/0750/images/biz_xmxx.png'" <!--{/if}--> class="usercenternav"><a href="/biz/index.php?tcur=1">
+        
+        <!--{if $pagetitle == 'index'}-->  <img  id="tcur" src="/static/0750/images/biz_xmxx-1.png"/><!--{else}-->  <img id="tcur"  src="/static/0750/images/biz_xmxx.png"/><!--{/if}-->
+      
+        
+        My Items</a></h1>
+
+    </div>
+    
+     <div class="myappraise <!--{if $pagetitle == 'comment'}-->bizcur<!--{/if}-->">
+        <h1  onmouseover="document.getElementById('ccur').src='/static/0750/images/biz_msgico-1.png'"   <!--{if $pagetitle != 'comment'}--> onmouseout="document.getElementById('ccur').src='/static/0750/images/biz_msgico.png'" <!--{/if}-->  class="usercenternav"><a href="/biz/comment.php?ccur=1">
+        
+        <!--{if $pagetitle == 'comment'}-->  <img id="ccur"  src="/static/0750/images/biz_msgico-1.png"/><!--{else}-->  <img id="ccur"  src="/static/0750/images/biz_msgico.png"/><!--{/if}-->
+        
+ Users' Comments</a></h1>
+
+    </div>
+    
+    <div class="myorder  <!--{if $pagetitle == 'bill'}-->bizcur<!--{/if}-->">
+        <h1  onmouseover="document.getElementById('ocur').src='/static/0750/images/biz_orderico-1.png'" <!--{if $pagetitle != 'bill'}-->   onmouseout="document.getElementById('ocur').src='/static/0750/images/biz_orderico.png'" <!--{/if}-->  class="usercenternav"><a href="/biz/bill_index.php?ocur=1">
+
+         <!--{if $pagetitle == 'bill'}-->  <img id="ocur"  src="/static/0750/images/biz_orderico-1.png"/><!--{else}-->  <img id="ocur"  src="/static/0750/images/biz_orderico.png"/><!--{/if}-->
+        
+        Financial Management</a></h1>
+    </div>
+
+<!--   <div class="myappraise">
+        <h1 class="usercenternav"><a href="/biz/coupon.php"><img src="/static/0750/images/msgico.png"/>优惠劵</a></h1>
+
+    </div>-->
+    
+  
+    
+    <div class="mycollect">
+       <h1  onmouseover="document.getElementById('xfdj').src='/static/0750/images/biz_xfdj (2).png'"  onmouseout="document.getElementById('xfdj').src='/static/0750/images/biz_xfdj (1).png'"   class="usercenternav">
+        <a id="verify-coupon-id" href="javascript:;"><img  id="xfdj" src="/static/0750/images/biz_xfdj (1).png"/>Consumption Registration</a>
+       </h1>
+        
+    </div>
+</div>    
+    <div id="pagemasker"></div><div id="dialog"></div>

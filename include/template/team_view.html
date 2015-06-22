@@ -1,0 +1,362 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" dir="ltr" lang="ZH-CN">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="X-UA-Compatible" content="edge" />
+<!--{include meta_and_title}-->
+<link rel="icon" href="favicon.ico" type="/image/x-icon" />
+<link rel="shortcut icon" href="favicon.ico" type="/image/x-icon" />
+<link rel="stylesheet" href="/static/css/index.css" type="text/css" media="screen" charset="utf-8" />
+<link href="/static/0750/css/linkinusaindex.css" rel="stylesheet" type="text/css">
+<link href="static/0750/css/list.css" rel="stylesheet" type="text/css" />
+<link href="static/0750/css/custom.css" rel="stylesheet" type="text/css" />
+<link href="static/0750/css/near.css" rel="stylesheet" type="text/css" />
+<link href="static/0750/css/og.css" rel="stylesheet" type="text/css" />
+<link href="static/0750/css/page.css" rel="stylesheet" type="text/css" />
+<link href="static/0750/css/supplier.css" rel="stylesheet" type="text/css" />
+<link href="static/0750/css/member.css" rel="stylesheet" type="text/css" />
+<link href="static/0750/css/poptips.css" rel="stylesheet" type="text/css" />
+<link href="static/0750/css/reviews.css" rel="stylesheet" type="text/css" />
+<link href="static/0750/css/hack.css" rel="stylesheet" type="text/css" />
+<link href="static/0750/css/baidu.css" rel="stylesheet" type="text/css" />
+
+<!--<script src="static/0750/js/j.js" type="text/javascript"></script>-->
+<script src="static/0750/js/jquery-1.2.6.pack.js" type="text/javascript"></script>
+<script src="static/0750/js/history.js" type="text/javascript"></script>
+<script src="static/0750/js/slide.js" type="text/javascript"></script>
+<script src="static/0750/js/base.js" type="text/javascript"></script>
+<script src="/static/js/index.js" type="text/javascript"></script>
+<script src="static/0750/js/lib.js" type="text/javascript"></script>
+<script src="static/0750/js/163css.js" type="text/javascript"></script>
+
+
+<script language="JavaScript">
+
+$(document).ready(function () {
+	$("#small_list li").click(function(){ 
+		var src = $(this).find("img").attr('src');
+        $(this).addClass('a').siblings().removeClass('a');
+		$("#imgview").find("img").attr("src",src);
+		
+  });
+ 
+if(!ie6){
+$("#fix").scrollFix("top","top");
+$("#history").scrollFix("top","top");}
+var pagesize=getPageSize();
+	$('#Mask').width(pagesize[0]);
+	$('#Mask').height(pagesize[1]);
+resize(); 
+$(".otherlist").mouseover(
+	  function () {
+	    $(this).addClass("hover");
+	  }
+	);
+	$(".otherlist").mouseout(
+	  function () {
+	    $(this).removeClass("hover");
+	  }
+	);
+});
+</script>
+
+<style type="text/css">
+.bdxq a{ color:#333333}
+</style>
+
+</head>
+
+<body data-spy="scroll" data-target=".gre-navigation" data-offset="60">
+<div id="pagemasker"></div><div id="dialog"></div>
+<!--{include head_ctn}-->
+
+<script type="text/javascript">
+$('.ptl .choose a').hover(function(){
+	$('.ptl .tl').show();
+},function(){});
+$('.ptl').hover(function(){},
+    function(){
+        $('.ptl .tl').hide();
+    });
+</script>
+<style type="text/css">
+#Mask {
+	position:absolute;
+	display:none;
+	left:0;
+	top:0;
+	width:100%;
+	height:100%;
+	background:#000000;
+	opacity:0.1;
+	filter:alpha(opacity=10);
+	z-index:9000;
+}
+#mbox {
+	position:fixed;
+	_position:absolute;
+	visibility:hidden;
+	top:10px;
+	width:1000px;
+	height:550px;
+	border:1px solid #68b02c;
+	background:#ffffff;
+	z-index:10000;
+}
+</style>
+<script type="text/javascript" src="http://api.map.baidu.com/api?v=1.4&services=true"></script>
+<script type="text/javascript" src="static/0750/js/SearchInfoWindow_min.js"></script>
+<link rel="stylesheet" href="static/0750/css/SearchInfoWindow_min.css" />
+<script type="text/javascript" src="static/0750/js/scrollFix.js"></script>
+
+<script type="text/javascript">
+bShareOpt = {
+   uuid: "95a39e2f-f790-4936-b87a-942b33c3690a", 
+   url: "", //商品的永久链接
+   summary: "", //商品描述
+   pic: "", //商品图片链接
+   vUid: "", //用户id，为了让您能够知道您网站的注册用户分享、喜欢了哪些商品
+   product: "", //商品名称
+   price: "", //商品价格
+   brand: "", //商品品牌
+   tag: "", //商品标签
+   category: "", //商品分类
+   template: "1" 
+};
+</script>
+<div class="content">
+	<div class="listnav">
+		<div class="nownav">{$home_url} {$team['title']}</div>
+	</div>
+	<div class="merchanttitle">
+		<h1>{$team['title']}</h1>
+		<div class="merchanttitlep">{$team['product']}</div>
+	</div>
+	<div class="merchantbanner">
+		<div class="merchantfocus">
+			<div id="preview">
+				<div class="" id="imgview">
+					<img src="${team_image_0750($team['image'])}" jqimg="${team_image_0750($team['image'])}" alt="product image" />
+				</div>
+			<div id="spec-n5">
+				<div id="spec-list">
+					<ul class="list-h" id="small_list">
+						<li><a><img src="${team_image_0750($team['image'])}" /></a></li>
+						<!--{if $team['image1']}-->
+						<li><a><img src="${team_image($team['image1'])}" /></a></li>
+						<!--{/if}-->
+						<!--{if $team['image2']}-->
+						<li><a><img src="${team_image($team['image2'])}" /></a></li>
+						<!--{/if}-->
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="merchantinfo">
+		<ul class="merchantinfoul">
+			<li style="height:35px;"><t class="evaluationt">{$currency}${getbigprice($team['team_price'])}</t><s class="evaluations">{$currency}${getbigprice($team['market_price'])}</s></span>
+            <p style="margin-top:12px;"><em><i style="width:{$team['score']*20}%;"><img style="float:left" src="static/0750/images/stars.gif" height="15" width="66" /> </i> </em><span style="line-height:16px; color:#000">{$team['score']} 分</span> </p></li>
+			<li style="color:#000"><div class="quanjieshao"><span>有效期：</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;截止至${date('Y.m.d',$team['expire_time'])}<br/><span>使用时间：</span>&nbsp; &nbsp;&nbsp;{$team['sy_time']}</div></li>
+            
+
+			<li>
+             <!--{loop $tc_team $index $one}-->
+               <!--{if $one['tc_title']}-->
+            <a style="cursor:pointer" href="team.php?id={$one['id']}"> <input style="<!--{if $one['id'] == $team['id'] }-->border:#05aecc solid 1px;<!--{/if}-->" type="button" value="{$one['tc_title']}" class="taocantype"/></a>
+             <!--{/if}-->
+             <!--{/loop}-->
+            </li>
+              <form method="get" action="/team/buy.php">
+              <input type="hidden" name="id" value="{$team['id']}" />
+			<li><div class="ordernums"><span>数量：</span><input type="button" class="ordernumsadd" value="-"/><input onkeyup="javascript:(this.v=function(){this.value=this.value.replace(/[^0-9-]+/,'');}).call(this);" onblur="javascript:this.v();" type="text" class="ordernumsshow" value="1" name="quantity"/><input type="button" class="ordernumscut" value="+"/></a></div></li>
+            
+            
+			<li><div>
+                  <a class="ajaxlink" style="float:right" href="/ajax/cart.php?a=tocart&id={$team['id']}"><img src="/static/0750/images/gouwuche.png" width="65" height="51" style="margin-top:5px; margin-left:5px;"/></a>
+             <!--{if $is_collect == 1}-->   
+				 <a class="addfav"><input style="width:80px" type="button" class="collectbtnsmall" value="已收藏"/></a>
+				 <!--{else}--> 
+				 <a href="/team.php?id={$team['id']}&act=collect" class="addfav"><input style="width:80px" type="button" class="collectbtnsmall" value="收藏"/></a>
+				 <!--{/if}--> 
+				 <!--{if $team['close_time']}--> <!--{else}-->
+				 <a id="quantity" class="style lighter buy-now">
+				<input type="submit" class="rightnoworder" value="立即抢购"/></a><!--{/if}-->
+                <a href="/team.php?id={$team['id']}&act=zan" style="font-size:20px; color:#05aecc"><img style="width:22px;height:30px; margin-top:13px;" src="/static/0750/images/zanimg.png"/> {$team['zan']}</a>
+                </div></li>
+            </form>    
+			<li style="margin-top:20px">
+					<!-- 百度分享代码开始 -->
+			<div class="bdsharebuttonbox" data-tag="share_1">
+			<span style="float:left; margin-top:10px; margin-right:10px;">
+					<img src="/static/0750/images/shareico.png"/>
+					分享到:
+				</span>
+		<a class="bds_weixin" data-cmd="weixin"></a>
+		<a class="bds_qzone" data-cmd="qzone" href="#"></a>
+		<a class="bds_renren" data-cmd="renren"></a>
+		<a class="bds_tqq" data-cmd="tqq"></a>
+		<a class="bds_tsina" data-cmd="tsina"></a>
+		<a class="bds_fbook" data-cmd="fbook"></a>
+	</div>
+<script>
+	window._bd_share_config = {
+		common : {
+			bdText : '',	
+			bdDesc : '',	
+			bdUrl : '', 	
+			bdPic : ''
+		},
+		share : [{
+			"bdCustomStyle" : "static/0750/css/baidu.css",
+		}],
+		slide : [{	   
+			bdImg : 0,
+			bdPos : "right",
+			bdTop : 100
+		}],
+		image : [{
+			viewType : 'list',
+			viewPos : 'top',
+			viewColor : 'black',
+			viewSize : '16',
+			viewList : ['qzone','tsina','huaban','tqq','renren']
+		}],
+		selectShare : [{
+			"bdselectMiniList" : ['qzone','tqq','kaixin001','bdxc','tqf']
+		}]
+	}
+	with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?cdnversion='+~(-new Date()/36e5)];
+</script>
+				<!-- 百度分享代码结束1 -->
+            </li>
+				<li><div class="topreason">服务承诺：
+				<!--{if $team['allowrefund'] == 'Y'}-->
+				<img src="/static/0750/images/tuiico.png"/><span>随时退</span>
+				<!--{else}--><!--{/if}-->
+				<img src="/static/0750/images/pinzhi.png"/><span>品质保证</span><img src="/static/0750/images/xjb.png"/><span>性价比高</span></div>
+</li>
+			</ul>
+			
+		</div>
+		</div>
+		<div class="merchantnav">
+			<ul><a href="#position" onclick="a(this.id)"><li id="nav1">位置</li></a><a href="#mustknow"><li id="nav2">购买须知</li></a><a href="#details"><li id="nav3">本单详情</li></a><a href="#introduce"><li id="nav4">商家介绍</li></a><a href="#appraise"><li id="nav5">消费评价</li></a></ul>
+		</div>
+		<h1 class="merchantitle" id="position">商家位置</h1>
+       <div style="float:left;">
+	   <!--{include block_block_partnermap}-->
+	<!--	<img src="/static/0750/images/googlemap.png"/>-->
+        </div>
+        <!--${$partner = Table::Fetch('partner', $team['partner_id']);}-->
+		<div class="merchantaddress"><h1>{$partner['title']}</h1>
+			<ul><li>地址：{$partner['address']}</li>
+				<li>路线：{$partner['route']}</li>
+				<li>网站：{$partner['homepage']}</li>
+				<li>电话：{$partner['phone']}</li>
+			</ul>
+		</div>
+		<div class="buyrules">
+		<h1 class="merchantitle" id="mustknow">购买须知</h1>
+		{$team['summary']}
+				</div>
+		<div class="bdxq">
+		<h1 class="merchantitle" id="details">本单详情</h1>
+		{$team['detail']}
+		</div>
+		<h1 class="merchantitle" id="introduce">
+		
+		商家介绍 
+		<a id="zhankai" style="color:#05aecd; font-size:16px; float:right">全部展开</a>
+		<a id="zhankai_1" style="color:#05aecd; font-size:16px; float:right; display:none">全部收起</a>
+		</h1>
+		<div class="merchantcontent">
+			<div id="partner_1">${mb_strimwidth($partner['other'],0, 1000,'...')}</div>
+			<div id="partner_all" style="display:none">{$partner['other']}</div>
+
+		</div>
+		
+		<script type="text/javascript">
+             document.getElementById("zhankai").onclick = function(){
+				document.getElementById("partner_all").style.display = "block";
+				document.getElementById("partner_1").style.display = "none";
+				document.getElementById("zhankai").style.display = "none";
+				document.getElementById("zhankai_1").style.display = "block";
+			 }
+			 
+			  document.getElementById("zhankai_1").onclick = function(){
+				document.getElementById("partner_all").style.display = "none";
+				document.getElementById("partner_1").style.display = "block";
+				document.getElementById("zhankai").style.display = "block";
+				document.getElementById("zhankai_1").style.display = "none";
+			 }
+        </script>
+		
+		<h1 class="merchantitle" id="appraise">消费评价<p class="lookalla"><a href="/order/comment_index.php?os=no">我要评价</a></p></h1>
+		 
+         <div class="merchantinfoul" style="padding-top:15px;">
+          <span style="float:left">商家累计评分：</span>
+          <em><i style="width:{$team['score']*20}%;"><img style="float:left" src="static/0750/images/stars.gif" height="15" width="66" /> </i> </em><span style="line-height:16px; color:#000">{$team['score']} 分</span> 
+          ({$all_comment})人评价
+          
+          </div>
+
+		<div class="pinglunlist">
+        
+          <!--{loop $comment_all_list $index $one}-->
+		<div class="appraiselist">
+			<p><b>{$one['username']}</b><span>${date('d-m-Y',$one['comment_time'])}</span><span class="plimg">
+            
+            
+               <!--${
+               for($i=0;$i<5;$i++){
+                  if($i < $one['comment_grade']){
+                     echo '<img src="/static/0750/images/fullstar.png"/>';
+                  }else{
+                     echo '<img src="/static/0750/images/midstar.png"/>';
+                  }
+                  
+               }
+              
+              }-->
+            
+   
+            
+            </span></p>
+			<p>{$one['comment_content']}</p>
+		</div>
+        <!--{/loop}-->
+        
+
+		</div>
+        <h1 class="merchantitle">附近团购</h1>
+		<div class="recommend">
+			
+			<p class="recommendp">您可能感兴趣的新产品</p>
+			<ul>
+					
+                    <!--{loop $fjteams $index $one}-->
+				<li><div><a href="/team.php?id={$one['id']}" target="_blank"><img src="${team_image($one['image'])}" /></a><h1>${mb_strimwidth($one['title'],0, 29,'...')}</h1><p>${mb_strimwidth($one['product'],0, 45,'...')}</p><p><img src="/static/0750/images/addressico.png"/><span>${get_area_name($one['area_id'])}</span></p><p class="productstar"><img src="/static/0750/images/fullstar.png"/><img src="/static/0750/images/fullstar.png"/><img src="/static/0750/images/fullstar.png"/><img src="/static/0750/images/fullstar.png"/><img src="/static/0750/images/midstar.png"/><span>4.5分</span></p></div>
+					<div class="pricetopline"><div class="pricebg">{$currency}${getbigprice($one['team_price'])}</div><div class="spricebg">{$currency}${getbigprice($one['market_price'])}</div></div>
+					</li>
+			 <!--{/loop}-->   
+			</ul>
+		</div>
+	</div>
+
+<!--{include foot_ctn}-->
+<link href="static/0750/css/baidu.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript">
+    $('.ordernumsadd').click(function(){
+		
+        var n = $('.ordernumsshow').val();
+            n = parseInt($('.ordernumsshow').val());
+            if(n>1){n-=1;}else{n=1;}
+	        $('.ordernumsshow').val(n);
+		});
+	$('.ordernumscut').click(function(){
+            n = parseInt($('.ordernumsshow').val());
+            if(n>0){n+=1;}else{n=1;}
+			$('.ordernumsshow').val(n);
+    });
+</script>
